@@ -98,9 +98,6 @@ echo "source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh" >> ~/.zshrc
 # Apply zsh configuration
 source ~/.zshrc
 
-# Clone a GitHub repository
-git clone https://github.com/your-username/your-repository.git
-
 # Reboot to apply changes
 echo "Installation complete. Rebooting..."
 sudo reboot
