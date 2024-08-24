@@ -9,14 +9,17 @@ export const UbuntuApplicationInstaller: React.FC<
   return (
     <div>
       <CopyBlock
-        text={`
-      #!/bin/bash
+        text={`      
+#!/bin/bash
 
 # Update and upgrade the system
 sudo apt update && sudo apt upgrade -y
 
 # Install basic utilities
 sudo apt install -y curl wget git vim
+
+# Install libfuse2 for AppImage support
+sudo apt install -y libfuse2
 
 # Install specific applications
 sudo apt install -y gnome-tweaks
@@ -77,7 +80,7 @@ rm google-chrome-stable_current_amd64.deb
 
 # Install JetBrains Toolbox
 curl -L "https://data.services.jetbrains.com/products/download?platform=linux&code=TBA" -o jetbrains-toolbox.tar.gz
-tar -xzf jetbrains-toolbox.tar.gz -C /opt
+sudo tar -xzf jetbrains-toolbox.tar.gz -C /opt
 sudo mv /opt/jetbrains-toolbox-* /opt/jetbrains-toolbox
 /opt/jetbrains-toolbox/jetbrains-toolbox &
 
@@ -89,19 +92,28 @@ read -n 1 -s
 sudo apt install -y zsh
 chsh -s $(which zsh)
 
-# Install zsh-autocomplete plugin
-git clone https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh-autocomplete
+# Install zsh-autosuggestions plugin && add zsh-autosuggestions plugin to .zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 
-# Add zsh-autocomplete plugin to .zshrc
-echo "source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh" >> ~/.zshrc
+# Install powerlevel10k && add to .zshrc
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 # Apply zsh configuration
 source ~/.zshrc
 
+# Install ibus-bamboo
+sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
+sudo apt update
+sudo apt install -y ibus ibus-bamboo --install-recommends
+
+# Set up ibus-bamboo
+ibus restart
+
 # Reboot to apply changes
 echo "Installation complete. Rebooting..."
 sudo reboot
-
       `}
         showLineNumbers={true}
         language={"JScript"}
