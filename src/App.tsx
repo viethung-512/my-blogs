@@ -1,7 +1,9 @@
 import * as React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import { UbuntuApplicationInstaller } from "components/UbuntuApplicationInstaller";
 import { Layout } from "components/Layout";
+import { SSHSetup } from "components/SSHSetup";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +13,10 @@ const router = createBrowserRouter([
       {
         path: "/ubuntu-app-installer",
         element: <UbuntuApplicationInstaller />,
+      },
+      {
+        path: "/ssh-setup",
+        element: <SSHSetup />,
       },
     ],
   },

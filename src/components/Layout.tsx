@@ -14,6 +14,9 @@ export const Layout: React.FC<LayoutProps> = () => {
           <li>
             <Link to="/ubuntu-app-installer">Ubuntu Application Installer</Link>
           </li>
+          <li>
+            <Link to="/ssh-setup">SSH Setup</Link>
+          </li>
         </ul>
       </nav>
 
