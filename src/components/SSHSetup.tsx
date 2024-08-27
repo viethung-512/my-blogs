@@ -29,7 +29,7 @@ export SETEL_PLATFORM_API_PASSWORD=maePheishej1goo
 
 echo "Setel - Git global config changed to $GIT_USER_NAME & $GIT_USER_EMAIL"
 
-export NPM_AUTH_TOKEN=3ba9afa2-326e-427e-9236-5035efd4e809
+export NPM_AUTH_TOKEN=f1ef306a-fb79-4a8f-a2a6-4cf702d45db5
 export AWS_PROFILE=setel
 
 echo 'Setel - Updated environment variables'
