@@ -27,7 +27,6 @@ sudo apt install -y build-essential
 sudo apt install -y snapd
 sudo snap install code --classic  # Install Visual Studio Code
 sudo snap install postman
-sudo apt install telegram-desktop
 
 # Install Docker
 sudo apt install -y docker.io
